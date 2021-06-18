@@ -1,0 +1,43 @@
+{
+    "port": 8080,
+    "log": {
+        "level": "info",
+        "filename": "app.log"
+    },
+    "db": {
+        "client": "mysql2",
+        "connection": {
+            "host": "localhost",
+            "database": "banking",
+            "user": "root",
+            "password": "123456789",
+            "charset": "utf8mb4"
+        },
+       
+        "migrations": {
+            "directory": "db/migrations"
+        },
+        "seeds": {
+            "directory": "db/seeds"
+        },
+        "pool": {
+            "min": 2,
+            "max": 25
+        },
+        "useNullAsDefault": true
+    },
+    "cryptoConfig": {
+        "algorithm": "aes-256-ctr",
+        "key": "wbedibeiwhduwiehdwuihd;ixhewow;do034i0348-0348-034vyiuGVvbgvgv89873%$%#"
+    },
+    "hashLength": 10,
+    "jwt": {
+        "secret": "9cvrSBzHzGP9pPXR5nLR",
+        "tokenExpire": 120
+    },
+    "sessionManager": {
+        "webMultiSession": false,
+        "userTokenExpireTime": 120
+    },
+    "frontEndUrl":"http://localhost:3000"
+}

@@ -1,0 +1,133 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    link(rel='shortcut icon', type='image/png', href='img/favi.png')
+    title Mail 3
+  body
+    // Page 1
+    div(style='max-width:610px; margin:0 auto;font-family: Arial;font-weight:500;margin-bottom:50px;')
+      div(style='width:100%;float:left;position:relative;border:2px solid #6C38BB;border: 0px solid #6C38BB;min-height: 500px;')
+        // header
+        div(style='width: 100%;float: left;text-align:left;position:relative;')
+          div(style='float:left;width:25%')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') To
+            p(style='font-size:11px;margin:0px;')  #{result.name}
+          div(style='float:left;width:20%')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') Email
+            p(style='font-size:11px;margin:0px;') #{result.email}
+          div(style='float:left;width:55%;text-align:right;')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') Bill Number
+            p(style='font-size:11px;margin:0px;') #{result.billNumber}
+        div(style='width: 100%;float: left;text-align:left;position:relative;')
+          div(style='float:left;width:25%')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') Address
+            p(style='font-size:11px;margin:0px;')  #{result.address1}
+          div(style='float:left;width:20%')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') Phone
+            p(style='font-size:11px;margin:0px;') #{result.phone}
+          div(style='float:left;width:55%;text-align:right;')
+            p(style='color:#0073e6;font-size:11px;margin:0px;') Bill Date
+            p(style='font-size:11px;margin:0px;') #{result.date}
+        div(style='width: 100%;float: left;text-align:right;position:relative;margin-top:55px;')
+          div(style='width:100%;float:left;color:#fff; background:#1e1e1e; padding-left:5px; font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Credit
+            div(style='width:75%;text-align:left;float:left;')
+              p Your Sales
+          div
+         div(style='width: 100%;float: left;text-align:right;position:relative;')
+          div(style='width:100%;float:left;color:#0073e6;font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Amount
+            div(style='width:25%;text-align:left;float:left;')
+              p Date
+            div(style='width:25%;float:left;')
+              p Quantity
+            div(style='width:25%;float:left;')
+              p Rate
+          div
+          each val, index in result.sold
+            div(style='width:100%;float:left;border-bottom:1px solid lightgrey;font-size:12px;')
+              div(style='width:25%;text-align:left;float:left;')
+                p(style='margin-top:2px;')  #{val.credit}
+              div(style='width:25%;text-align:left;float:left;')
+                p(style='margin-top:2px;')  #{val.date}
+              div(style='width:25%;float:left;')
+               p #{val.credit ? val.tradeId && val.tradeId.quantity :''}
+              div(style='width:25%;float:left;')
+                p #{val.tradeId && val.tradeId.rate}
+
+        div(style='width: 100%;float: left;text-align:right;position:relative;margin-top:55px;')
+           div(style='width:100%;float:left;color:#fff; background:#1e1e1e; padding-left:5px; font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Debit
+            div(style='width:75%;text-align:left;float:left;')
+              p Your Purchases
+          div
+         div(style='width: 100%;float: left;text-align:right;position:relative;')
+          div(style='width:100%;float:left;color:#0073e6;font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Amount
+            div(style='width:25%;text-align:left;float:left;')
+              p Date
+            div(style='width:25%;float:left;')
+              p Quantity
+            div(style='width:25%;float:left;')
+              p Rate
+          div
+          each val, index in result.purchase
+            div(style='width:100%;float:left;border-bottom:1px solid lightgrey;font-size:12px;')
+              div(style='width:25%;text-align:left;float:left;')
+                p(style='margin-top:2px;')  #{val.debit}
+              div(style='width:25%;text-align:left;float:left;')
+                p(style='margin-top:2px;')  #{val.date}
+              div(style='width:25%;float:left;')
+               p #{val.debit ? val.tradeId && val.tradeId.quantity :''}
+              div(style='width:25%;float:left;')
+                p #{val.tradeId && val.tradeId.rate}
+
+
+
+        div(style='width: 100%;float: left;text-align:right;position:relative;margin-top:55px;')
+           div(style='width:100%;float:left;color:#fff; background:#1e1e1e; padding-left:5px; font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Demat Charges
+          div
+         div(style='width: 100%;float: left;text-align:right;position:relative;')
+          div(style='width:100%;float:left;color:#0073e6;font-size:12px;')
+            div(style='width:25%;text-align:left;float:left;')
+              p Amount
+          div
+
+        div(style='width:100%;float:left;border-bottom:1px solid lightgrey;font-size:12px;')
+              div(style='width:25%;text-align:left;float:left;')
+                p(style='margin-top:2px;')  #{result.consolidatedLedgerData.dematChargeAmount}
+                
+        div(style='width: 100%;float: left;text-align:right;position:relative;margin-top:55px;border-top:3px solid #0073e6;')
+          div(style='width:100%;float:left;color:#0073e6;font-size:12px;')
+            div(style='width:15%;text-align:left;float:left;')
+              p #{result.consolidatedLedgerData.debit ? "Due From You":""}
+              p #{result.consolidatedLedgerData.credit ? "Due To You":""}
+              //- p #{"Demat Charges "}
+            div(style='width:75%;text-align:left;float:left;')
+              p #{result.consolidatedLedgerData.debit ? result.consolidatedLedgerData.debit  : result.consolidatedLedgerData.credit  }
+                    //-  p #{result.consolidatedLedgerData.dematChargeAmount }
+          div
+
+          //- div(style='width: 100%;float: left;text-align:right;position:relative;margin-top:55px;border-top:3px solid #171717;')  
+          //- div(style='width:100%;float:left;border-bottom:1px solid #171717;font-size:12px;')
+          //-     div(style='width:15%;text-align:left;float:left;')
+          //-       p(style='margin-top:2px;')  #{result.consolidatedLedgerData.date}
+          //-     div(style='width:25%;text-align:left;float:left;')
+          //-       p(style='margin-top:2px;')  #{result.consolidatedLedgerData.description}
+          //-     div(style='width:10%;float:left;')
+          //-       p #{result.consolidatedLedgerData.debit}
+          //-     div(style='width:10%;float:left;')
+          //-      p #{result.consolidatedLedgerData.credit}
+          //-     div(style='width:17.5%;float:left;')
+          //-       p #{result.consolidatedLedgerData.lastAmount}
+          //-     div(style='width:17.5%;float:left;')
+          //-       p #{result.consolidatedLedgerData.currentAmount}
+                

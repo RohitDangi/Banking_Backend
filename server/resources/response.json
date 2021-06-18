@@ -1,0 +1,25 @@
+{
+    "SUCCESS": "Success",
+    "IN_SUFFICIENT_FUND": "In Sufficient Balance.",
+    "USER_NOT_FOUND": "User not found.",
+    "USER_ID_REQUIRED": "User Id required.",
+    "LOGIN_SUCCESSFULLY": "You are successfully login.",
+    "TOKEN_NOT_PROVIDED": "You are not autherized to excess this path.Please provide autherization token.",
+    "INVALID_TOKEN": "Provided token is invalid",
+    "INVALID_CREDENTIALS": "Incorrect credentials.",
+    
+    "DB_ERROR": "Something went wrong.",
+    "DUPLICATE": "Duplicate entry.",
+    "EMAIL_ALREADY_EXISTS":"This user is already registered with us",
+    "APP_ERROR": "Application error occurred.",
+    "INVALID_OBJECT_ID": "Invalid ID provided.",
+    "DEFAULT": "Something went wrong.",
+    "FAILED": "Failed",
+    "USER_BLOCKED": "You are blocked from accessing clevexa.Please contact your administrator",
+    "USER_EMAIL_NOT_VERIFIED": "Email address is not verified. Please verify your email before login.",
+    
+    "SQL_ERROR": "DB: Something went wrong.",
+
+   
+    "LEDGER_NOT_FOUND": "Ledger not found."
+}
