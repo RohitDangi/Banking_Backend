@@ -60,6 +60,7 @@ module.exports = {
     },
     listUser: async (req, res) => {
         try {
+
             let limit = req.query.limit ? req.query.limit : appConstants.DEFALUT_LIMIT;
             let offset = req.query.offset ? req.query.offset : appConstants.DEFALUT_SKIP;
             console.log("user", req.user);
@@ -67,7 +68,7 @@ module.exports = {
             let user = await User.query(function (qb) {
                 qb.where((builder) => {
                     builder.where(filter);
-                    builder.andWhere('id', '<>', req.user.id)
+                    builder.andWhere('id', '<>', req.user.id)              // list user except current login user
                 })
             })
                 .orderBy('createdAt', 'DESC')
@@ -144,14 +145,15 @@ module.exports = {
                 }
                 console.log("senderEntry", senderEntry,);
 
+                // Entry for Sender and receiver both.
                 console.log("receiverEntry", receiverEntry);
                 await Ledger.forge().save(senderEntry);
                 await Ledger.forge().save(receiverEntry);
-
-
+                
+                
                 let usersToUpdate = [{ id: receiverEntry.userId, currenBalance: receiverEntry.currentAmount }, { id: senderEntry.userId, currenBalance: senderEntry.currentAmount }];
-                //  add amount to receiver and deduct from sender logic here
 
+                // updating the new amount to their profle
                 if (usersToUpdate.length > 0) {
                     usersToUpdate.map(async (p) => {
                         await knex('users').update(p).where('id', p.id)
